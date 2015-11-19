@@ -67,7 +67,8 @@ def create(token, slack_req):
     poll = polls.find_one({"channel": slack_req.form['channel_id']})
 
     if poll is not None:
-        return "There is an active poll in this channel already!"
+        return "There is an active poll in this channel already!\n" \
+               "Please ask @%s to close their poll" % poll['creator']
 
     cmd_txt = slack_req.form['text']
     question_match = re.search("create (.+) options", cmd_txt)
