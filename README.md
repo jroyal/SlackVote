@@ -1,5 +1,7 @@
 # SlackPoll
 Add a basic polling integration to slack channels. It currently allows for one poll per channel at a given time.
+This is an integration for Socrata's slack implementation to allow the admin team to make surveys inline in Slack. 
+Our requirements are written by Diana Post and issues listed follow her requests. 
 
 --- 
 

@@ -78,7 +78,7 @@ def create(token, slack_req):
 
     options_match = re.search("options (.*)", cmd_txt)
     if options_match:
-        options = [{"name": x.strip(), "count": 0} for x in options_match.group(1).split("---")]
+        options = [{"name": x.strip(), "count": 0} for x in options_match.group(1).split("|")]
     else:
         return "Malformed Request. Use `/poll help` to find out how to form the request."
 
@@ -190,11 +190,11 @@ def send_poll_start(url, poll):
     """
     payload = {
         "channel": "%s" % poll['channel'],
-        "text": "@%s created a new poll! Vote in it!" % poll['creator'],
+        "text": "@%s created a new Snurvey! Vote in it!" % poll['creator'],
         "link_names": 1,
         "attachments": [
             {
-                "fallback": "@%s created a new poll! Vote in it!" % poll['creator'],
+                "fallback": "@%s created a new Snurvey! Vote in it!" % poll['creator'],
 
                 "color": "good",
                 "mrkdwn_in": ["fields", "text"],
